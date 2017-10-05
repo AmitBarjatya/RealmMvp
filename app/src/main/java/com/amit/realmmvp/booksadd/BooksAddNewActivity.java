@@ -13,21 +13,32 @@ import android.widget.Toast;
 import com.amit.realmmvp.R;
 import com.amit.realmmvp.mvpbase.MVPBaseView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 /**
  * Created by Amit Barjatya on 10/5/17.
  */
 
 public class BooksAddNewActivity extends MVPBaseView implements BooksAddNewContract.View {
 
-    EditText edBookName;
-    EditText edBookAuthor;
-    Button btnAddBook;
+    @BindView(R.id.ed_book_name) EditText edBookName;
+    @BindView(R.id.ed_book_author) EditText edBookAuthor;
+    @BindView(R.id.btn_add_book) Button btnAddBook;
+
+    @OnClick(R.id.btn_add_book) void addBook(){
+        String name = edBookName.getText().toString();
+        String author = edBookAuthor.getText().toString();
+        mPresenter.addBook(name,author);
+    }
 
     BooksAddNewContract.Presenter mPresenter;
 
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_book);
+        ButterKnife.bind(this);
         mPresenter = new BooksAddNewPresenter();
         initViews();
     }
@@ -45,8 +56,6 @@ public class BooksAddNewActivity extends MVPBaseView implements BooksAddNewContr
     }
 
     void initViews() {
-        edBookName = findViewById(R.id.ed_book_name);
-        edBookAuthor = findViewById(R.id.ed_book_author);
         edBookName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -83,17 +92,6 @@ public class BooksAddNewActivity extends MVPBaseView implements BooksAddNewContr
 
             }
         });
-
-        btnAddBook = findViewById(R.id.btn_add_book);
-        btnAddBook.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String name = edBookName.getText().toString();
-                String author = edBookAuthor.getText().toString();
-                mPresenter.addBook(name,author);
-            }
-        });
-
     }
 
     @Override

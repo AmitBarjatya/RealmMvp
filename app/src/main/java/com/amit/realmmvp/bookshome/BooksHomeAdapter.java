@@ -9,6 +9,8 @@ import android.widget.TextView;
 import com.amit.realmmvp.R;
 import com.amit.realmmvp.models.coreobjects.Book;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import io.realm.RealmResults;
 
 /**
@@ -44,13 +46,12 @@ public class BooksHomeAdapter extends RecyclerView.Adapter<BooksHomeAdapter.Book
     }
 
     static class BookHolder extends RecyclerView.ViewHolder{
-        TextView tvName;
-        TextView tvAuthor;
+        @BindView(android.R.id.text1) TextView tvName;
+        @BindView(android.R.id.text2) TextView tvAuthor;
 
         public BookHolder(View itemView) {
             super(itemView);
-            this.tvName = itemView.findViewById(android.R.id.text1);
-            this.tvAuthor = itemView.findViewById(android.R.id.text2);
+            ButterKnife.bind(this,itemView);
         }
     }
 

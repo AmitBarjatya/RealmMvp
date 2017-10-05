@@ -14,22 +14,26 @@ import com.amit.realmmvp.booksadd.BooksAddNewActivity;
 import com.amit.realmmvp.models.coreobjects.Book;
 import com.amit.realmmvp.mvpbase.MVPBaseView;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import io.realm.RealmResults;
 
 public class BooksActivity extends MVPBaseView implements BooksHomeContract.View {
 
-    RecyclerView rv;
+    @BindView(R.id.rv_books) RecyclerView rv;
+
     BooksHomeAdapter mAdapter;
     BooksHomeContract.Presenter mPresenter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books);
+        ButterKnife.bind(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         initRecyclerView();
-        initFab();
         mPresenter = new BooksHomePresenter();
     }
 
@@ -46,21 +50,14 @@ public class BooksActivity extends MVPBaseView implements BooksHomeContract.View
     }
 
     void initRecyclerView() {
-        rv = findViewById(R.id.rv_books);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
         mAdapter = new BooksHomeAdapter();
         rv.setAdapter(mAdapter);
     }
 
-    void initFab() {
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                mPresenter.onAddBookClicked();
-            }
-        });
+    @OnClick(R.id.fab) void onFabClick() {
+        mPresenter.onAddBookClicked();
     }
 
 
