@@ -31,4 +31,8 @@ public class RealmService {
             }
         });
     }
+
+    public void closeRealm() {
+        mRealm.close();
+    }
 }

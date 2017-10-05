@@ -1,5 +1,6 @@
 package com.amit.realmmvp.bookshome;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,6 +10,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.amit.realmmvp.R;
+import com.amit.realmmvp.booksadd.BooksAddNewActivity;
 import com.amit.realmmvp.models.coreobjects.Book;
 import com.amit.realmmvp.mvpbase.MVPBaseView;
 
@@ -48,6 +50,7 @@ public class BooksActivity extends MVPBaseView implements BooksHomeContract.View
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
         mAdapter = new BooksHomeAdapter();
+        rv.setAdapter(mAdapter);
     }
 
     void initFab() {
@@ -68,6 +71,7 @@ public class BooksActivity extends MVPBaseView implements BooksHomeContract.View
 
     @Override
     public void gotoAddNewBook() {
-        Toast.makeText(this, "Action to go to add new book activity", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, BooksAddNewActivity.class);
+        startActivity(intent);
     }
 }

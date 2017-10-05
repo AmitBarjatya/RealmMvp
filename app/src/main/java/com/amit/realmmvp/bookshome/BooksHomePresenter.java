@@ -12,17 +12,18 @@ public class BooksHomePresenter implements BooksHomeContract.Presenter {
     RealmService mRealmService;
 
     public BooksHomePresenter(){
-        mRealmService = new RealmService();
     }
 
     public void setView(BooksHomeContract.View view) {
         this.mView = view;
+        mRealmService = new RealmService();
         mView.showBooks(mRealmService.getAllBooks());
     }
 
     @Override
     public void clearView() {
         this.mView = null;
+        mRealmService.closeRealm();
     }
 
     @Override

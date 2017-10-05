@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/til_book_name"
+        android:layout_marginTop="32dp">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter book name"
+            android:id="@+id/ed_book_name"
+            android:imeOptions="actionNext"
+            android:inputType="textCapWords"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/til_book_author"
+        android:layout_below="@+id/til_book_name">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter author name"
+            android:id="@+id/ed_book_author"
+            android:imeOptions="actionDone"
+            android:inputType="text"/>
+    </android.support.design.widget.TextInputLayout>
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_add_book"
+        android:text="Add Book"
+        android:layout_below="@id/til_book_author"
+        android:layout_margin="16dp"
+        />
+
+</RelativeLayout>
