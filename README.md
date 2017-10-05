@@ -38,7 +38,7 @@ There are a lot of articles on blogs and content websites like medium regarding 
 >Singleton will just make data repository bloated if we have a "real world" application with couple of Models.
 
 ### About This Example
-The associated example works with this points in mind. It's a simple app which shows a list of Books and you can also add a new book.
+The associated example works with this points in mind. It's a simple app which shows a list of Books and you can also add a new book. This project is made on Android Studio 3.0 Beta 2, so there may be some problem running it on older version of Android Studio.
 
 #### Commit 6436bfd
 This is the commit where a basic MVP architectured app is in place. It uses minimum third party libs to make things simple to understand.
