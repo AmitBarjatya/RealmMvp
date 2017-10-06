@@ -9,7 +9,7 @@ import io.realm.RealmResults;
  * Created by Amit Barjatya on 10/5/17.
  */
 
-interface BooksHomeContract {
+public interface BooksHomeContract {
     interface View {
         void showBooks(RealmResults<Book> books);
         void gotoAddNewBook();

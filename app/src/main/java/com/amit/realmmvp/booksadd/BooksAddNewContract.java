@@ -6,7 +6,7 @@ import com.amit.realmmvp.mvpbase.MVPBasePresenter;
  * Created by Amit Barjatya on 10/5/17.
  */
 
-interface BooksAddNewContract {
+public interface BooksAddNewContract {
     interface View{
         void onBookAdded();
         void showNameRequiredError();

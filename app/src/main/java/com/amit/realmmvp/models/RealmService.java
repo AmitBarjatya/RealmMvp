@@ -17,6 +17,8 @@ public class RealmService {
     }
 
     public RealmResults<Book> getAllBooks(){
+        if (mRealm.isClosed())
+            mRealm = Realm.getDefaultInstance();
         return mRealm.where(Book.class).findAllSorted("id");
     }
 

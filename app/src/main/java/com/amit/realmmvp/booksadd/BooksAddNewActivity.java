@@ -11,7 +11,10 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.amit.realmmvp.R;
+import com.amit.realmmvp.di.DaggerBooksAddNewComponent;
 import com.amit.realmmvp.mvpbase.MVPBaseView;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,13 +36,16 @@ public class BooksAddNewActivity extends MVPBaseView implements BooksAddNewContr
         mPresenter.addBook(name,author);
     }
 
+    @Inject
     BooksAddNewContract.Presenter mPresenter;
 
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_book);
         ButterKnife.bind(this);
-        mPresenter = new BooksAddNewPresenter();
+        DaggerBooksAddNewComponent.builder()
+                .build()
+                .inject(this);
         initViews();
     }
 

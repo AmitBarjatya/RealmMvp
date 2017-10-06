@@ -11,8 +11,11 @@ import android.widget.Toast;
 
 import com.amit.realmmvp.R;
 import com.amit.realmmvp.booksadd.BooksAddNewActivity;
+import com.amit.realmmvp.di.DaggerBooksHomeComponent;
 import com.amit.realmmvp.models.coreobjects.Book;
 import com.amit.realmmvp.mvpbase.MVPBaseView;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -24,17 +27,20 @@ public class BooksActivity extends MVPBaseView implements BooksHomeContract.View
     @BindView(R.id.rv_books) RecyclerView rv;
 
     BooksHomeAdapter mAdapter;
-    BooksHomeContract.Presenter mPresenter;
+
+    @Inject BooksHomeContract.Presenter mPresenter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books);
         ButterKnife.bind(this);
+        DaggerBooksHomeComponent.builder()
+                .build()
+                .inject(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         initRecyclerView();
-        mPresenter = new BooksHomePresenter();
     }
 
     @Override

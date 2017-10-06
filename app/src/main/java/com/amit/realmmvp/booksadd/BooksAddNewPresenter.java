@@ -13,12 +13,12 @@ public class BooksAddNewPresenter implements BooksAddNewContract.Presenter{
     BooksAddNewContract.View mView;
     RealmService mRealmService;
 
-    public BooksAddNewPresenter(){
+    public BooksAddNewPresenter(RealmService realmService){
+        this.mRealmService = realmService;
     }
 
     public void setView(BooksAddNewContract.View view) {
         this.mView = view;
-        mRealmService = new RealmService();
     }
 
     @Override
