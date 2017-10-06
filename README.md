@@ -42,3 +42,6 @@ The associated example works with this points in mind. It's a simple app which s
 
 #### Commit 6436bfd
 This is the commit where a basic MVP architectured app is in place. It uses minimum third party libs to make things simple to understand.
+
+#### Commit c880e9d
+This is the commit where butterknife library is introduced in the project. The core structure and functionality of the app remains the same.
