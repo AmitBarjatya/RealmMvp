@@ -45,3 +45,6 @@ This is the commit where a basic MVP architectured app is in place. It uses mini
 
 #### Commit c880e9d
 This is the commit where butterknife library is introduced in the project. The core structure and functionality of the app remains the same.
+
+#### Commit 2c823ee
+This adds support of dagger2 library for dependency injection.
