@@ -11,10 +11,18 @@ import io.realm.RealmConfiguration;
 
 public class BooksApplication extends Application {
 
+    AppComponent mComponent;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        initComponent();
         initRealm();
+    }
+
+    void initComponent(){
+        mComponent = DaggerAppComponent.builder()
+                .build();
     }
 
     void initRealm() {
@@ -23,5 +31,13 @@ public class BooksApplication extends Application {
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(configuration);
+    }
+
+    public AppComponent getmComponent() {
+        return mComponent;
+    }
+
+    public void setmComponent(AppComponent mComponent) {
+        this.mComponent = mComponent;
     }
 }

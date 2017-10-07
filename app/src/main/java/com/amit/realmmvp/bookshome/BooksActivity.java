@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Toast;
 
+import com.amit.realmmvp.BooksApplication;
 import com.amit.realmmvp.R;
 import com.amit.realmmvp.booksadd.BooksAddNewActivity;
 import com.amit.realmmvp.di.DaggerBooksHomeComponent;
@@ -34,8 +35,7 @@ public class BooksActivity extends MVPBaseView implements BooksHomeContract.View
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_books);
         ButterKnife.bind(this);
-        DaggerBooksHomeComponent.builder()
-                .build()
+        ((BooksApplication) getApplication()).getmComponent()
                 .inject(this);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

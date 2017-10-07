@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.amit.realmmvp.BooksApplication;
 import com.amit.realmmvp.R;
 import com.amit.realmmvp.di.DaggerBooksAddNewComponent;
 import com.amit.realmmvp.mvpbase.MVPBaseView;
@@ -43,8 +44,7 @@ public class BooksAddNewActivity extends MVPBaseView implements BooksAddNewContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_book);
         ButterKnife.bind(this);
-        DaggerBooksAddNewComponent.builder()
-                .build()
+        ((BooksApplication) getApplication()).getmComponent()
                 .inject(this);
         initViews();
     }
