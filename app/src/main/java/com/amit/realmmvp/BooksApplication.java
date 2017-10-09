@@ -2,6 +2,8 @@ package com.amit.realmmvp;
 
 import android.app.Application;
 
+import com.amit.realmmvp.models.migration.Migration;
+
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
@@ -28,7 +30,8 @@ public class BooksApplication extends Application {
     void initRealm() {
         Realm.init(this);
         RealmConfiguration configuration = new RealmConfiguration.Builder()
-                .deleteRealmIfMigrationNeeded()
+                .migration(new Migration())
+                .schemaVersion(Migration.VERSION)
                 .build();
         Realm.setDefaultConfiguration(configuration);
     }

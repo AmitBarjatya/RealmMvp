@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.amit.realmmvp.BooksApplication;
 import com.amit.realmmvp.R;
-import com.amit.realmmvp.di.DaggerBooksAddNewComponent;
 import com.amit.realmmvp.mvpbase.MVPBaseView;
 
 import javax.inject.Inject;
