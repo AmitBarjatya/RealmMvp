@@ -40,11 +40,14 @@ There are a lot of articles on blogs and content websites like medium regarding 
 ### About This Example
 The associated example works with this points in mind. It's a simple app which shows a list of Books and you can also add a new book. This project is made on Android Studio 3.0 Beta 2, so there may be some problem running it on older version of Android Studio.
 
-#### Commit 6436bfd
+#### Commit 6436bfd Basic MVP app
 This is the commit where a basic MVP architectured app is in place. It uses minimum third party libs to make things simple to understand.
 
-#### Commit c880e9d
+#### Commit c880e9d Adds Butterknife
 This is the commit where butterknife library is introduced in the project. The core structure and functionality of the app remains the same.
 
-#### Commit 2c823ee
+#### Commit 2c823ee Adds Dagger2
 This adds support of dagger2 library for dependency injection.
+
+#### Commit 0717a46 Realm Schema Migration
+This commit upgrades the Book realm schema created earlier in the project.  
