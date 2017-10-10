@@ -15,6 +15,8 @@ import com.amit.realmmvp.booksadd.BooksAddNewActivity;
 import com.amit.realmmvp.models.coreobjects.Book;
 import com.amit.realmmvp.mvpbase.MVPBaseView;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import butterknife.BindView;
@@ -67,7 +69,7 @@ public class BooksActivity extends MVPBaseView implements BooksHomeContract.View
 
 
     @Override
-    public void showBooks(RealmResults<Book> books) {
+    public void showBooks(List<Book> books) {
         mAdapter.setBooks(books);
     }
 

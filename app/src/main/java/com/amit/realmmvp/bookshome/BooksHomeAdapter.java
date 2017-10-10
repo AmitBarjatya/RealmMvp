@@ -9,6 +9,8 @@ import android.widget.TextView;
 import com.amit.realmmvp.R;
 import com.amit.realmmvp.models.coreobjects.Book;
 
+import java.util.List;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.realm.RealmResults;
@@ -19,7 +21,7 @@ import io.realm.RealmResults;
 
 public class BooksHomeAdapter extends RecyclerView.Adapter<BooksHomeAdapter.BookHolder> {
 
-    private RealmResults<Book> books;
+    private List<Book> books;
 
     @Override
     public BookHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -40,7 +42,7 @@ public class BooksHomeAdapter extends RecyclerView.Adapter<BooksHomeAdapter.Book
         return books.size();
     }
 
-    public void setBooks(RealmResults<Book> books) {
+    public void setBooks(List<Book> books) {
         this.books = books;
         notifyDataSetChanged();
     }
