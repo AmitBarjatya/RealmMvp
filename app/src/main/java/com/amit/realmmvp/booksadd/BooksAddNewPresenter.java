@@ -29,10 +29,10 @@ public class BooksAddNewPresenter implements BooksAddNewContract.Presenter{
 
     @Override
     public void addBook(String name, String author) {
-        if (TextUtils.isEmpty(name)){
+        if (name == null || name.isEmpty()){
             mView.showNameRequiredError();
             return;
-        }else if(TextUtils.isEmpty(author)){
+        }else if(author == null || author.isEmpty()){
             mView.showAuthorRequiredError();
             return;
         }

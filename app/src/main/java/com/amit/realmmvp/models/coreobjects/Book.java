@@ -1,5 +1,7 @@
 package com.amit.realmmvp.models.coreobjects;
 
+import java.util.Date;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
@@ -12,6 +14,9 @@ public class Book extends RealmObject {
     private long id;
     private String name;
     private String author;
+    private String publisher;
+    private Date createdOn;
+    private String imageUri;
 
 
     public long getId() {
@@ -36,5 +41,29 @@ public class Book extends RealmObject {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    public Date getCreatedOn() {
+        return createdOn;
+    }
+
+    public void setCreatedOn(Date createdOn) {
+        this.createdOn = createdOn;
+    }
+
+    public String getImageUri() {
+        return imageUri;
+    }
+
+    public void setImageUri(String imageUri) {
+        this.imageUri = imageUri;
     }
 }
