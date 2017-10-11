@@ -7,6 +7,8 @@ import io.realm.RealmMigration;
 import io.realm.RealmSchema;
 
 /**
+ * The migration file to use for any realm relation database schema upgrades
+ * <p>
  * Created by Amit Barjatya on 10/9/17.
  */
 
@@ -22,15 +24,15 @@ public class Migration implements RealmMigration {
     @Override
     public void migrate(DynamicRealm realm, long oldVersion, long newVersion) {
         RealmSchema schema = realm.getSchema();
-        if(oldVersion == 0){
+        if (oldVersion == 0) {
             schema.get("Book")
-                    .addField("imageUri",String.class)
-                    .addField("publisher",String.class)
+                    .addField("imageUri", String.class)
+                    .addField("publisher", String.class)
                     .addField("createdOn", Date.class);
             oldVersion++;
         }
 
-        if (oldVersion == 1){
+        if (oldVersion == 1) {
             //use this block if you wish to upgrade schema further
         }
     }

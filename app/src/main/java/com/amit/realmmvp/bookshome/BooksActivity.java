@@ -2,12 +2,9 @@ package com.amit.realmmvp.bookshome;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.widget.Toast;
 
 import com.amit.realmmvp.BooksApplication;
 import com.amit.realmmvp.R;
@@ -22,15 +19,23 @@ import javax.inject.Inject;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.realm.RealmResults;
+
+/**
+ * Activity to show all the books currently in persistent storage
+ * It follows the MVP pattern and obeys the BooksHomeContract
+ * <p>
+ * Created by Amit Barjatya on 10/5/17.
+ */
 
 public class BooksActivity extends MVPBaseView implements BooksHomeContract.View {
 
-    @BindView(R.id.rv_books) RecyclerView rv;
+    @BindView(R.id.rv_books)
+    RecyclerView rv;
 
     BooksHomeAdapter mAdapter;
 
-    @Inject BooksHomeContract.Presenter mPresenter;
+    @Inject
+    BooksHomeContract.Presenter mPresenter;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +61,9 @@ public class BooksActivity extends MVPBaseView implements BooksHomeContract.View
         super.onStop();
     }
 
+    /**
+     * Initialize recycler view and Adapter
+     */
     void initRecyclerView() {
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
@@ -63,16 +71,29 @@ public class BooksActivity extends MVPBaseView implements BooksHomeContract.View
         rv.setAdapter(mAdapter);
     }
 
-    @OnClick(R.id.fab) void onFabClick() {
+    /**
+     * When fab button is clicked
+     * notify the presenter
+     */
+    @OnClick(R.id.fab)
+    void onFabClick() {
         mPresenter.onAddBookClicked();
     }
 
 
+    /**
+     * Show the list of books in this view
+     *
+     * @param books The list of books to show
+     */
     @Override
     public void showBooks(List<Book> books) {
         mAdapter.setBooks(books);
     }
 
+    /**
+     * Go To the BooksAddNewActivity
+     */
     @Override
     public void gotoAddNewBook() {
         Intent intent = new Intent(this, BooksAddNewActivity.class);

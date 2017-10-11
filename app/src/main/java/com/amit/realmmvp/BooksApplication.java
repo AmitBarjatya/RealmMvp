@@ -22,7 +22,7 @@ public class BooksApplication extends Application {
         initRealm();
     }
 
-    void initComponent(){
+    void initComponent() {
         mComponent = DaggerAppComponent.builder()
                 .build();
     }

@@ -6,6 +6,8 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 /**
+ * A schema that defines a Book in Realm Storage
+ * <p>
  * Created by Amit Barjatya on 10/4/17.
  */
 
@@ -18,6 +20,7 @@ public class Book extends RealmObject {
     private Date createdOn;
     private String imageUri;
 
+    //getters and setters...
 
     public long getId() {
         return id;

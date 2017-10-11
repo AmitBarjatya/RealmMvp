@@ -1,7 +1,5 @@
 package com.amit.realmmvp.di;
 
-import android.app.Application;
-
 import com.amit.realmmvp.BooksApplication;
 
 import javax.inject.Singleton;
@@ -23,7 +21,7 @@ public class AppModule {
 
     @Provides
     @Singleton
-    BooksApplication providesApplication(){
+    BooksApplication providesApplication() {
         return mApp;
     }
 }

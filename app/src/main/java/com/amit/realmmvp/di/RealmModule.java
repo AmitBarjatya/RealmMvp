@@ -13,12 +13,12 @@ import io.realm.Realm;
 public class RealmModule {
 
     @Provides
-    Realm provideRealm(){
+    Realm provideRealm() {
         return Realm.getDefaultInstance();
     }
 
     @Provides
-    RealmService provideRealmService(){
+    RealmService provideRealmService() {
         return new RealmService();
     }
 }

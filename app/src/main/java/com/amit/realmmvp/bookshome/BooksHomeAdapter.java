@@ -6,16 +6,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.amit.realmmvp.R;
 import com.amit.realmmvp.models.coreobjects.Book;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import io.realm.RealmResults;
 
 /**
+ * Adapter to show a list of the books
  * Created by Amit Barjatya on 10/5/17.
  */
 
@@ -26,7 +25,7 @@ public class BooksHomeAdapter extends RecyclerView.Adapter<BooksHomeAdapter.Book
     @Override
     public BookHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(android.R.layout.simple_list_item_2,parent,false);
+                .inflate(android.R.layout.simple_list_item_2, parent, false);
         return new BookHolder(view);
     }
 
@@ -47,13 +46,15 @@ public class BooksHomeAdapter extends RecyclerView.Adapter<BooksHomeAdapter.Book
         notifyDataSetChanged();
     }
 
-    static class BookHolder extends RecyclerView.ViewHolder{
-        @BindView(android.R.id.text1) TextView tvName;
-        @BindView(android.R.id.text2) TextView tvAuthor;
+    static class BookHolder extends RecyclerView.ViewHolder {
+        @BindView(android.R.id.text1)
+        TextView tvName;
+        @BindView(android.R.id.text2)
+        TextView tvAuthor;
 
         public BookHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this,itemView);
+            ButterKnife.bind(this, itemView);
         }
     }
 

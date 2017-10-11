@@ -15,7 +15,7 @@ import dagger.Provides;
 public class BooksAddNewModule {
 
     @Provides
-    BooksAddNewContract.Presenter provideAddNewPresenter(RealmService realmService){
+    BooksAddNewContract.Presenter provideAddNewPresenter(RealmService realmService) {
         return new BooksAddNewPresenter(realmService);
     }
 }

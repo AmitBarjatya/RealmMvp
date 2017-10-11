@@ -10,11 +10,11 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
-import org.mockito.internal.matchers.Null;
 import org.mockito.runners.MockitoJUnitRunner;
-import static org.mockito.Mockito.*;
+
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.verify;
 
 /**
  * Created by Amit Barjatya on 10/10/17.
@@ -52,10 +52,10 @@ public class TestBooksAddNewPresenter {
      */
     @Test
     public void testAddBookReturnsErrorWhenNameIsInvalid() {
-        String name= "";
+        String name = "";
         String author = "someAuthor";
 
-        mPresenter.addBook(name,author);
+        mPresenter.addBook(name, author);
 
         verify(mView).showNameRequiredError();
     }
@@ -66,10 +66,10 @@ public class TestBooksAddNewPresenter {
      */
     @Test
     public void testAddBookReturnsErrorWhenAuthorIsInvalid() {
-        String name= "someName";
+        String name = "someName";
         String author = "";
 
-        mPresenter.addBook(name,author);
+        mPresenter.addBook(name, author);
 
         verify(mView).showAuthorRequiredError();
     }
@@ -80,14 +80,14 @@ public class TestBooksAddNewPresenter {
      * Test that the view's books added method gets called
      */
     @Test
-    public void testAddBookWorksForValidNameAndAuthor(){
-        String name= "someName";
+    public void testAddBookWorksForValidNameAndAuthor() {
+        String name = "someName";
         String author = "someAuthor";
 
-        mPresenter.addBook(name,author);
+        mPresenter.addBook(name, author);
 
-        verify(realmService).addBook(name,author);
-        verify(mView,atLeastOnce()).onBookAdded();
+        verify(realmService).addBook(name, author);
+        verify(mView, atLeastOnce()).onBookAdded();
     }
 
 }
