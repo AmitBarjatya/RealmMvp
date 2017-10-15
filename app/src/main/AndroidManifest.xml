@@ -23,6 +23,7 @@
 
         <activity
             android:name=".booksadd.BooksAddNewActivity"
+            android:parentActivityName=".bookshome.BooksActivity"
             android:label="Books Add New" />
     </application>
 

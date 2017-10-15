@@ -118,7 +118,7 @@ public class BooksAddNewActivity extends MVPBaseView implements BooksAddNewContr
      */
     @Override
     public void showNameRequiredError() {
-        edBookName.setError("This is required");
+        edBookName.setError(getString(R.string.activity_booksaddnew_field_is_required));
     }
 
     /**
@@ -127,7 +127,7 @@ public class BooksAddNewActivity extends MVPBaseView implements BooksAddNewContr
      */
     @Override
     public void showAuthorRequiredError() {
-        edBookAuthor.setError("This is required");
+        edBookAuthor.setError(getString(R.string.activity_booksaddnew_field_is_required));
     }
 
     /**
@@ -136,8 +136,8 @@ public class BooksAddNewActivity extends MVPBaseView implements BooksAddNewContr
      */
     @Override
     public void onBookAdded() {
-        Toast.makeText(this, "Book Added Successfully", Toast.LENGTH_SHORT).show();
-        edBookName.setText("");
-        edBookAuthor.setText("");
+        Toast.makeText(this, R.string.activity_booksaddnew_book_add_success, Toast.LENGTH_SHORT).show();
+        edBookAuthor.setText(null);
+        edBookName.setText(null);
     }
 }
